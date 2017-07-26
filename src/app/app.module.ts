@@ -2,10 +2,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms'
 import { HttpModule} from '@angular/http'
+import {JsonpModule} from '@angular/http';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { MaterialModule } from '@angular/material';
+import { MasonryModule } from 'angular2-masonry';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ImageListComponent } from './image-list/image-list.component';
+
+
+import { Provider } from '@angular/core';
+
+import { BrowserXhr } from '@angular/http';
+import {CustExtBrowserXhr} from '../app/cors/cust-ext-browser-xhr';
+
+import {ImageServiceService} from './shard/image-service.service'
+import 'hammerjs';
+import { LoginComponent } from './login/login.component';
+import { EmailComponent } from './email/email.component';
+import { SignupComponent } from './signup/signup.component';
+import { MembersComponent } from './members/members.component';
 
 export const firebaseConfig = {
   // apiKey: 'AIzaSyC4u1X5L3B5nHzJ-BVzxmHHVxu_JHa5cns',
@@ -26,7 +45,12 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ImageListComponent,
+    LoginComponent,
+    EmailComponent,
+    SignupComponent,
+    MembersComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +58,14 @@ export const firebaseConfig = {
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    MaterialModule,
+    JsonpModule,
+    MasonryModule,
+    BrowserAnimationsModule
+    
   ],
-  providers: [],
+  providers: [ImageServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

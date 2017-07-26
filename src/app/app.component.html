@@ -1,9 +1,15 @@
-<div class="row columns">
-  <button (click)="login()" *ngIf="!(user | async)?.uid">Anonymous Login</button>
-  <button (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
+<div class="container">
+  <div class="main-content">
+    <div class="header">
+      <span id="title"> {{ title }} </span>
+      <div class="logo">
+        <div id="attribution">All images provided by</div>
+        <a href="https://pixabay.com" target="_blank">
+          <img src= "../assets/images/logo.png" class="pixabayLogo">
+        </a>
+      </div>
+    </div>
 
-  <input type="text" id="message" *ngIf="(user | async)?.uid" placeholder="What is it that you do?" (keyup.enter)="Send($event.target.value)" [(ngModel)]="msgVal" />
-  <div id="details-container">
-      <p *ngFor="let item of items | async"><img src="../assets/images/pin.svg">{{item.message}}</p>
+    <app-image-list></app-image-list>
   </div>
 </div>
