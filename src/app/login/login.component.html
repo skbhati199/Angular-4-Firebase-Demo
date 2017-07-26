@@ -1,1 +1,45 @@
-<h1>Hello</h1>
+<h1 *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.email }}!</h1>
+<button (click)="logout()" *ngIf="authService.user | async">
+  Logout
+</button>
+
+<md-tab-group >
+  <md-tab label="Register"><md-card>
+    <md-input-container>
+        <input mdInput [(ngModel)]="email" placeholder="Email ID">
+    </md-input-container>
+      <br>
+        <md-input-container>
+          <input mdInput [(ngModel)]="password" placeholder="Password ">
+        </md-input-container>
+        <br>
+         <md-input-container>
+          <input mdInput [(ngModel)]="confirmPassword" placeholder="Confirm Password">
+        </md-input-container>
+        <md-card-actions>
+          <button md-button>Register</button>
+          <button md-button>Facebook</button>
+          <button md-button>Twitter</button>
+          <button md-button (click)="loginWithGoogle()" [disabled]="!email || !password">Google</button>
+      </md-card-actions>
+    </md-card>
+  </md-tab>
+  
+  <md-tab label="Login">
+    <md-card>
+      <md-input-container>
+        <input mdInput placeholder="Email ID">
+      </md-input-container>
+    <br>
+     <md-input-container>
+       <input mdInput placeholder="Password ">
+      </md-input-container>
+      <md-card-actions>
+        <button md-button>Log In</button>
+        <button md-button>Facebook</button>
+        <button md-button>Twitter</button>
+        <button md-button (click)="loginWithGoogle()">Google</button>
+      </md-card-actions>
+    </md-card>
+  </md-tab>
+</md-tab-group>

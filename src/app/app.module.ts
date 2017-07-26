@@ -7,18 +7,13 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
 import { MaterialModule } from '@angular/material';
 import { MasonryModule } from 'angular2-masonry';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ImageListComponent } from './image-list/image-list.component';
-
-
 import { Provider } from '@angular/core';
-
 import { BrowserXhr } from '@angular/http';
 import {CustExtBrowserXhr} from '../app/cors/cust-ext-browser-xhr';
-
 import {ImageServiceService} from './shard/image-service.service'
 import 'hammerjs';
 import { LoginComponent } from './login/login.component';
@@ -27,6 +22,9 @@ import { SignupComponent } from './signup/signup.component';
 import { MembersComponent } from './members/members.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
+import { AuthService } from './auth.service';
+import { FirebaseCurdComponent } from './firebase-curd/firebase-curd.component';
 export const firebaseConfig = {
   // apiKey: 'AIzaSyC4u1X5L3B5nHzJ-BVzxmHHVxu_JHa5cns',
   // authDomain: 'https://fir-app-6ac9e.firebaseapp.com',
@@ -51,7 +49,8 @@ export const firebaseConfig = {
     LoginComponent,
     EmailComponent,
     SignupComponent,
-    MembersComponent
+    MembersComponent,
+    FirebaseCurdComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +66,7 @@ export const firebaseConfig = {
     BrowserAnimationsModule
     
   ],
-  providers: [ImageServiceService],
+  providers: [ImageServiceService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

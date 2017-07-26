@@ -1,0 +1,11 @@
+<ul>
+  <li *ngFor="let todo of (todos$ | async)" [class.done]="todo.done">
+    {{ todo.content }} <button md-button (click)="deleteTodo(todo)">X</button>
+  </li>
+</ul>
+
+<md-input-container>
+  <input mdInput [(ngModel)]="value" placeholder="Add Todo">
+</md-input-container>
+
+<button md-button (click)="addTodo(value)">Add</button>
