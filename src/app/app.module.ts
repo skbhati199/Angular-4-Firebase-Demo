@@ -25,6 +25,7 @@ import { LoginComponent } from './login/login.component';
 import { EmailComponent } from './email/email.component';
 import { SignupComponent } from './signup/signup.component';
 import { MembersComponent } from './members/members.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export const firebaseConfig = {
   // apiKey: 'AIzaSyC4u1X5L3B5nHzJ-BVzxmHHVxu_JHa5cns',
@@ -62,6 +63,7 @@ export const firebaseConfig = {
     MaterialModule,
     JsonpModule,
     MasonryModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule
     
   ],
