@@ -1,6 +1,7 @@
 <ul>
   <li *ngFor="let todo of (todos$ | async)" [class.done]="todo.done">
-    {{ todo.content }} <button md-button (click)="deleteTodo(todo)">X</button>
+    {{ todo.content }} <button md-button (click)="deleteTodo( todo)">X</button> 
+    <md-button-toggle (click)='toggleDone(todo)'></md-button-toggle>
   </li>
 </ul>
 
